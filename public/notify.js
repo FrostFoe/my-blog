@@ -1,13 +1,8 @@
-export async function GET() {
+(async function () {
   try {
-    // Get environment variables (Use Netlify environment variables instead of hardcoding)
+    // Replace with your actual Telegram bot credentials
     const BOT_TOKEN = "7798241066:AAE8Gz8M7__k6ZtFGgSmPTV8LYGObYr-aGU"; // ⚠️ Replace with your actual bot token
     const CHAT_ID = "7354767620"; // ⚠️ Replace with your actual chat ID
-
-
-    if (!BOT_TOKEN || !CHAT_ID) {
-      return new Response("Missing credentials", { status: 500 });
-    }
 
     // Fetch visitor's IP and location
     const ipResponse = await fetch("https://freeipapi.com/api/json/");
@@ -23,7 +18,9 @@ export async function GET() {
     const longitude = ipData.longitude || "📌 Unknown";
 
     // Capture visit time
-    const visitTime = new Date().toLocaleString("en-US", { timeZone: timezone });
+    const visitTime = new Date().toLocaleString("en-US", {
+      timeZone: timezone,
+    });
 
     // Random messages
     const messages = [
@@ -70,9 +67,5 @@ export async function GET() {
     // Send to Telegram
     const telegramURL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(message)}&parse_mode=Markdown`;
     await fetch(telegramURL);
-
-    return new Response(null, { status: 204 });
-  } catch {
-    return new Response("Internal Server Error", { status: 500 });
-  }
-}
+  } catch {}
+})();
