@@ -3,8 +3,8 @@ import type { APIRoute } from "astro";
 export const GET: APIRoute = async () => {
   try {
     // Get env vars from Netlify
-    const BOT_TOKEN = import.meta.env.TELEGRAM_BOT_TOKEN;
-    const CHAT_ID = import.meta.env.TELEGRAM_CHAT_ID;
+    const BOT_TOKEN = import.meta.env.BOT_TOKEN;
+    const CHAT_ID = import.meta.env.CHAT_ID;
 
     if (!BOT_TOKEN || !CHAT_ID) {
       console.error("Missing Telegram API credentials");
