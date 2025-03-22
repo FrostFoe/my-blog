@@ -2,6 +2,7 @@
 import { ClientRouter } from "astro:transitions";
 import { SITE } from "@/config";
 import { LOCALE } from "@/constants";
+import GoogleAnalytics from "@/components/GoogleAnalytics.astro";
 import "@/styles/global.css";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
@@ -131,7 +132,7 @@ const structuredData = {
 
     <ClientRouter />
 
-    <script is:inline src="/notify.js"></script>
+    <GoogleAnalytics />
 
     <script is:inline src="/toggle-theme.js"></script>
   </head>

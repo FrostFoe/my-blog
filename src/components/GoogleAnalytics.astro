@@ -1,0 +1,17 @@
+<!-- src/components/GoogleAnalytics.astro -->
+<script is:inline>
+  // Initialize dataLayer if it doesn't exist
+  if (!window.dataLayer) {
+    window.dataLayer = [];
+  }
+
+  // Define gtag function
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+
+  // Initialize gtag
+  gtag('js', new Date());
+  gtag('config', 'G-R9ZGRSXC9X');
+</script>
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-R9ZGRSXC9X"></script>
