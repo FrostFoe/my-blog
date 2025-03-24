@@ -22,23 +22,23 @@
 /* Custom Variant for Dark Mode */
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-/* Dark Theme (Default) */
+/* Light Theme */
 :root,
-html[data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --muted: #343f60bf;
-  --border: #ab4b08;
-}
-
-/* Light Theme (Override) */
 html[data-theme="light"] {
   --background: #fdfdfd;
   --foreground: #282728;
   --accent: #006cac;
   --muted: #e6e6e6;
   --border: #ece9e9;
+}
+
+/* Dark Theme */
+html[data-theme="dark"] {
+  --background: #212737;
+  --foreground: #eaedf3;
+  --accent: #ff6b01;
+  --muted: #343f60bf;
+  --border: #ab4b08;
 }
 
 /* Tailwind Theme Overrides */
@@ -60,8 +60,6 @@ html[data-theme="light"] {
 
   html {
     @apply overflow-y-scroll scroll-smooth;
-    /* Smooth theme transition */
-    transition: background-color 0.3s, color 0.3s;
   }
 
   /* Default Font: Bengali */
@@ -94,24 +92,4 @@ html[data-theme="light"] {
 /* Active Navigation */
 .active-nav {
   @apply underline decoration-wavy decoration-2 underline-offset-4;
-}
-
-/* Theme Toggle Button (Pure CSS) */
-.theme-toggle {
-  @apply p-2 rounded-full hover:bg-muted transition-colors;
-}
-
-/* Hide/show icons based on theme */
-.theme-toggle .dark-icon {
-  display: none;
-}
-.theme-toggle .light-icon {
-  display: inline;
-}
-
-html[data-theme="dark"] .theme-toggle .dark-icon {
-  display: inline;
-}
-html[data-theme="dark"] .theme-toggle .light-icon {
-  display: none;
 }
